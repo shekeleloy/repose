@@ -12,6 +12,11 @@
 
 } */
 
+.con-1 {
+    text-align: justify;
+    font-family: 'Inter';
+}
+
 .calendar-container {
     display: flex;
     justify-content: center;

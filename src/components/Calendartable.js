@@ -9,12 +9,18 @@ const Calendartable = () => {
   const [date, setDate] = useState(new Date());
 
   return (
-    <div className="calendar-container">
-        <Calendar calendarType="US" className="calendar" onChange={setDate} value={date} />
+    <div className="con-1">
+      <h2>Calendar</h2>
+      <div className="calendar-container">
+        <Calendar
+          calendarType="US"
+          className="calendar"
+          onChange={setDate}
+          value={date}
+        />
+      </div>
     </div>
   );
 };
 
 export default Calendartable;
-
-
