@@ -4,6 +4,7 @@ import "./App.css";
 
 // Components
 import Sidebar from "./components/Sidebar";
+import Navbar from "./components/Navbar";
 
 // Pages
 import Calendar from "./pages/Calendar";
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+      <Navbar />
         <Sidebar>
           <Routes>
             <Route path="/" element={<Dashboard />} />
