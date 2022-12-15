@@ -22,6 +22,10 @@ const Sidebar = ({children}) => {
             path:"/calendar",
             name:"Calendar",
         },
+        {
+            path:"/applyleave",
+            name:"ApplyLeave",
+        },
     ]
     return (
         <div className="container">
