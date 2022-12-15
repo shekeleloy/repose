@@ -1,10 +1,11 @@
 import React from 'react';
-import { Calendar } from 'react-calendar';
+import Calendartable from '../components/Calendartable';
+
 
 const Calendar = () => {
     return (
         <div>
-            <Calendar />
+            <Calendartable />
         </div>
     );
 }
