@@ -1,0 +1,58 @@
+.leave-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #52525C;
+    font-size: 15px;
+    font-weight: 700;
+    justify-content: space-evenly;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap: 10px;
+}
+
+input {
+    padding: 5px 10px;
+}
+
+input::file-selector-button {
+    background-color: #676666;
+    font-weight: bold;
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+}
+
+table {
+    background-color: #5B5B5B;
+    color: #fff;
+    width: 100%;
+    border: 1px solid #5b5b5b;
+    border-collapse: collapse;
+}
+
+tr td {
+    border: 1px solid #5b5b5b;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+button {
+    background-color: #C6C6C6;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
