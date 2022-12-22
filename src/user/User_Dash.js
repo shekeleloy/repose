@@ -2,7 +2,7 @@ import React from 'react';
 import Table from "../components/Table";
 
 
-const Dashboard = () => {
+const User_Dash = () => {
   return (
     <div className="dash-container">
       <Table />
@@ -10,4 +10,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard;
+export default User_Dash;

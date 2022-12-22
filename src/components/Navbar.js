@@ -6,7 +6,7 @@ function Navbar() {
     <div className="nav-container">
       <div className="navbar">
         <nav>
-          <img src="src/img/logo.png" alt="repose" className="log" />
+          <h3>REPOSE</h3>
         </nav>
       </div>
     </div>
