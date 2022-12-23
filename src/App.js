@@ -10,11 +10,13 @@ import Navbar from "./components/Navbar";
 import Calendar from "./pages/Calendar";
 import Dashboard from "./pages/Dashboard";
 import Leaves from "./pages/Leaves";
-import ApplyLeave from "./user/ApplyLeave";
+import Login from "./pages/Login";
+// import ApplyLeave from "./user/ApplyLeave";
 
 const App = () => {
   return (
     <div className="App">
+    <Login />
       <BrowserRouter>
       <Navbar />
         <Sidebar>
@@ -22,7 +24,6 @@ const App = () => {
             <Route path="/" element={<Dashboard />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/leaves" element={<Leaves />} />
-            <Route path="/applyleave" element={<ApplyLeave />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>
