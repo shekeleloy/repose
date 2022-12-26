@@ -1,13 +1,12 @@
 import React from "react";
+import logo from '../img/logo.png';
 
 
 function Navbar() {
   return (
     <div className="nav-container">
       <div className="navbar">
-        <nav>
-          <img src="src/img/logo.png" alt="repose" className="log" />
-        </nav>
+          <img src={logo} alt="repose" className="logo"></img>
       </div>
     </div>
   );
