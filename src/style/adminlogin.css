@@ -1,0 +1,87 @@
+.ad-log {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input {
+    border: none;
+    width: 411px;
+    height: 32px;
+
+    border-radius: 3px;
+    padding: 10px;
+}
+
+input:focus {
+    outline-color: darkgray;
+}
+
+.adminlog-form {
+    background-color: #383636;
+    color: white;
+    font-family: 'Inter';
+    height: 649px;
+    gap: 30px;
+
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.login-btn {
+    background-color: #545454;
+    width: 150px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.login-btn:hover {transform: scale(1.15);}
+
+.hide {
+    position: absolute;
+    transform: scale(0);
+}
+
+.login-popup {
+    font-family: 'Inter';
+    position: absolute;
+    height: 10em;
+    width: 30em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: #545454;
+    color: white;
+    bottom: 0;
+    transform: scale(1);
+    transition: 1.5s;
+}
+
+@media only screen and (max-width: 600px) {
+    div .logo1 {
+  display: none;
+    }
+  }

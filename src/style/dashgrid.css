@@ -1,14 +1,36 @@
-.App {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  
-  .droppable-element {
-    width: 200px;
-    text-align: center;
-    background: #fdd;
-    border: 1px solid black;
-    margin: 10px 0;
-    padding: 10px;
-  }
-  
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding-top: 30px;
+}
+
+.employee-grid {
+  padding: 20px;
+  background-color: #D9D9D9;
+  display: flex;
+}
+
+.leaves-grid {
+  padding: 20px;
+  background-color: #D9D9D9;
+  display: flex;
+}
+
+.approved-grid {
+  padding: 20px;
+  background-color: #D9D9D9;
+  display: flex;
+}
+
+.pending-grid {
+  padding: 20px;
+  background-color: #D9D9D9;
+  display: flex;
+}
+
+.declined-grid {
+  padding: 20px;
+  background-color: #D9D9D9;
+  display: flex;
+}

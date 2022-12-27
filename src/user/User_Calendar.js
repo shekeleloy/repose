@@ -1,7 +1,7 @@
 import React from 'react';
 import Calendartable from '../components/Calendartable';
 
-const Calendar = () => {
+const UserCalendar = () => {
     return (
         <div>
             <Calendartable />
@@ -9,4 +9,4 @@ const Calendar = () => {
     );
 }
 
-export default Calendar;
+export default UserCalendar;

@@ -1,12 +1,15 @@
-import React from 'react';
-
+import React from "react";
+import DashGrid from "../components/DashGrid";
 
 const Dashboard = () => {
   return (
-    <div className="dash-container">
-      
+    <div className="ad-dash">
+      <h1>Dashboard</h1>
+      <div className="ad-container">
+        <DashGrid />
+      </div>
     </div>
   );
-}
+};
 
 export default Dashboard;
