@@ -18,7 +18,7 @@ const Login = () => {
       </div>
 
       <div className="adminlog-form">
-        <h1>Login</h1>
+        <h1>Admin Login</h1>
         <input type="text" placeholder="Enter Email" />
         <input type="password" placeholder="Enter Password" />
 
