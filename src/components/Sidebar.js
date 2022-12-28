@@ -22,11 +22,6 @@ const Sidebar = ({ children }) => {
             path: "/calendar",
             name: "Calendar",
         },
-        {
-            path: "/user_dash",
-            name: "User_Dash",
-        },
-   
     ]
     return (
         <div className="container">
