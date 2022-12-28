@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Calendar } from "react-calendar";
 
 // CSS
-import "../style/calendar.css";
+import "../style/admin/calendar.css";
 
 const Calendartable = () => {
   const [date, setDate] = useState(new Date());

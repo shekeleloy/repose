@@ -1,0 +1,21 @@
+.dash-container{
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    background-color: black;
+    color: white;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  .alberto th{
+    background-color: #494949;
+  }

@@ -1,47 +1,53 @@
 import React from 'react';
-import {FaBars} from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
+import {BiLogOut} from 'react-icons/bi';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
-const Sidebar = ({children}) => {
+const Sidebar = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
 
-    const menuItem=[
+    const menuItem = [
         {
-            path:"/",
-            name:"Dashboard",
+            path: "/",
+            name: "Dashboard",
         },
         {
-            path:"/leaves",
-            name:"Leaves",
+            path: "/leaves",
+            name: "Leaves",
         },
         {
-            path:"/calendar",
-            name:"Calendar",
+            path: "/calendar",
+            name: "Calendar",
         },
         {
-            path:"/applyleave",
-            name:"ApplyLeave",
+            path: "/user_dash",
+            name: "User_Dash",
         },
+   
     ]
     return (
         <div className="container">
-            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+            <div style={{ width: isOpen ? "200px" : "50px" }} className="sidebar">
                 <div className="top_section">
-                    <div style={{marginLeft: isOpen ? "112px" : "0px"}} className="bars">
-                        <FaBars onClick={toggle}/>
+                    <div style={{ marginLeft: isOpen ? "112px" : "0px" }} className="bars">
+                        <FaBars onClick={toggle} />
+                      
                     </div>
                 </div>
                 {
                     menuItem.map((item, index) => (
-                        <NavLink to = {item.path} key = {index} className="link" activeclassName = "active">
+                        <NavLink to={item.path} key={index} className="link" activeclassName="active">
                             <div className="icon">{item.icon}</div>
-                            <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+                            <div style={{ display: isOpen ? "block" : "none" }} className="link_text">{item.name}</div>
                         </NavLink>
                     ))
                 }
+                <div style={{ display: isOpen ? "block" : "none" }} className="logout">
+                <BiLogOut />
+            </div>
             </div>
             <main>
                 {children}
