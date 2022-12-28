@@ -9,6 +9,7 @@ import Navbar from "../Navbar";
 import Calendar from "../../pages/Calendar";
 import Dashboard from "../../pages/Dashboard";
 import Leaves from "../../pages/Leaves";
+import AddUser from '../../pages/Add_User';
 
 const Router = () => {
     return (
@@ -18,6 +19,7 @@ const Router = () => {
           <Sidebar>
             <Routes>
               <Route path="/" element={<Dashboard />} />
+              <Route path="/add_user" element={<AddUser />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/leaves" element={<Leaves />} />
             </Routes>

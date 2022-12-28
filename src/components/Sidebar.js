@@ -15,6 +15,10 @@ const Sidebar = ({ children }) => {
             name: "Dashboard",
         },
         {
+            path: "/add_user",
+            name: "Add User",
+        },
+        {
             path: "/leaves",
             name: "Leaves",
         },
