@@ -8,7 +8,6 @@ import Router from "./components/router/router";
 const App = () => {
   return (
     <div className="App">
-
       <Router />
     </div>
   );

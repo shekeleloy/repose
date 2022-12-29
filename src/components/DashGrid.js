@@ -10,7 +10,7 @@ import {
 import { BsInfoSquare } from "react-icons/bs";
 
 // Style
-import "../style/dashgrid.css";
+import "../style/admin/dashgrid.css";
 
 const DashGrid = () => {
   return (

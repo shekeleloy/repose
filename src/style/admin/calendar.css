@@ -1,4 +1,4 @@
-/* .calendar-container{
+ /* .calendar-container{ 
     position: absolute;
     display: flex;
     justify-content: center;
@@ -10,7 +10,7 @@
     padding: 16px;
     gap: 20px;
 
-} */
+}  */
 
 .con-1 {
     text-align: justify;
@@ -28,6 +28,7 @@
     max-width: 100%;
     background:  #D9D9D9;
     font-family: 'Inter';
+    font-size: medium;
     line-height: 1.125em;
     border-radius: 5px;
 
@@ -39,8 +40,8 @@
     gap: 20px;
   
     position:relative   ;
-    width: 483px;
-    height: 340px;
+    width: 700px;
+    height: 400px;
 
 }
 
@@ -67,6 +68,8 @@
     margin: 0;
     border: 0;
     outline: none;
+    border-radius: 0;
+    font-size: smaller;
   }
   .react-calendar button:enabled:hover {
     cursor: pointer;
