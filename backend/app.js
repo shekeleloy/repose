@@ -3,14 +3,16 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var cors = require("cors");
+var format = require("./methods/format/index");
 
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var indexRouter = require("./routes/index/index");
+var usersRouter = require("./routes/users/route");
+var requestRouter = require("./routes/request/route");
 
 var app = express();
 
-// view engine setup
-
+app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -19,6 +21,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/request", requestRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -33,7 +36,8 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.send(format.data.Response("failed", "unable to process").body);
+  // res.render("error");
 });
 
 module.exports = app;
