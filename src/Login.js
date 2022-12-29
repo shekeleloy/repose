@@ -1,5 +1,5 @@
 import React from "react";
-import "../style/adminlogin.css";
+import "../style/admin/adminlogin.css";
 import { useState } from "react";
 
 const Login = () => {
@@ -16,6 +16,7 @@ const Login = () => {
       <div className="logo1">
         <img src={require("../img/logo.png")} />
       </div>
+      
 
       <div className="adminlog-form">
         <h1>Login</h1>
