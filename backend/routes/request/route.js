@@ -35,7 +35,16 @@ router.post("/view", function (req, res) {
     });
 });
 
-router.post("/update", function (req, res) {});
+router.post("/update", function (req, res) {
+  index.request
+    .update(req.body)
+    .then((result) => {
+      res.status(result.status).send(result.body);
+    })
+    .catch((err) => {
+      res.status(err.status).send(err.body);
+    });
+});
 
 router.post("/archive", function (req, res) {});
 

@@ -16,7 +16,12 @@ exports.create = (req) => {
       );
       stmt.run([req.user_uid, req.request_status, req.request_file], (err) => {
         if (err) {
-          reject(format.data.Response("failed", err));
+          reject(
+            format.data.Response("failed", {
+              err,
+              message: "token is expired or unregistered user",
+            })
+          );
         }
         resolve(format.data.Response("Success", "request has been made", 200));
       });
@@ -27,7 +32,7 @@ exports.create = (req) => {
     }
   });
 };
-exports.view = (req) => {
+const Check_Admin = (req) => {
   return new Promise((resolve, reject) => {
     if (req.user_uid != null) {
       db.serialize(() => {
@@ -39,22 +44,7 @@ exports.view = (req) => {
             reject(err);
           }
           if (row != null) {
-            const stmt = db.prepare(
-              "SELECT user_email, user_name, request_file, request_status, request_created, request_modify FROM request CROSS JOIN user where user_uid = ?"
-            );
-            stmt.all([req.user_uid], (err, rows) => {
-              if (err) {
-                reject(err);
-              }
-              if (rows.length > 0) {
-                resolve(
-                  format.data.Response("success", {
-                    message: "data is gathered",
-                    data: rows,
-                  })
-                );
-              }
-            });
+            resolve({ row });
           } else {
             resolve(
               format.data.Response(
@@ -72,10 +62,70 @@ exports.view = (req) => {
     }
   });
 };
+exports.view = (req) => {
+  return new Promise((resolve, reject) => {
+    if (req.user_uid != null) {
+      Check_Admin(req)
+        .then((result) => {
+          if (result.row != null) {
+            db.serialize(() => {
+              const stmt = db.prepare(
+                "SELECT request_id, user_email, user_name, request_file, request_status, request_created, request_modify FROM request CROSS JOIN user where user_uid = ?"
+              );
+              stmt.all([req.user_uid], (err, rows) => {
+                if (err) {
+                  reject(err);
+                }
+                if (rows.length > 0) {
+                  resolve(
+                    format.data.Response("success", {
+                      message: "data is gathered",
+                      data: rows,
+                    })
+                  );
+                }
+              });
+            });
+          } else {
+            resolve(result);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      resolve(
+        format.data.Response("failed", "missing/not Acceptable crednetial", 406)
+      );
+    }
+  });
+};
 exports.update = (req) => {
   return new Promise((resolve, reject) => {
-    if (req.request_status != null) {
-      const stmt = db.prepare("");
+    if (
+      req.request_status != null &&
+      req.user_uid != null &&
+      req.request_id != null
+    ) {
+      Check_Admin(req).then((result) => {
+        if (result.row != null) {
+          db.serialize(() => {
+            const stmt = db.prepare(
+              "UPDATE request SET request_status = ?, request_modify = CURRENT_TIMESTAMP WHERE request_id = ?"
+            );
+            stmt.run([req.request_status, req.request_id], (err) => {
+              if (err) {
+                reject(err);
+              }
+              resolve(
+                format.data.Response("Success", "data has been update/modified")
+              );
+            });
+          });
+        } else {
+          resolve(result);
+        }
+      });
     } else {
       resolve(
         format.data.Response("failed", "missing/not Acceptable crednetial", 406)
