@@ -4,7 +4,7 @@ import {BiLogOut} from 'react-icons/bi';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
-const Sidebar = ({ children }) => {
+const UserSidebar = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
@@ -15,12 +15,8 @@ const Sidebar = ({ children }) => {
             name: "Dashboard",
         },
         {
-            path: "/add_user",
-            name: "Add User",
-        },
-        {
-            path: "/leaves",
-            name: "Leaves",
+            path: "/applyleave",
+            name: "Apply Leave",
         },
         {
             path: "/calendar",
@@ -55,4 +51,4 @@ const Sidebar = ({ children }) => {
     );
 }
 
-export default Sidebar;
+export default UserSidebar;
