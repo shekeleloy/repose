@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../App.css";
 
 // Component
-import UserSidebar from '../components/user component/usersidebar';
+import UserSidebar from '../components/user_component/usersidebar';
 import Navbar from '../components/Navbar';
 
 // Page
