@@ -1,5 +1,5 @@
 import React from "react";
-import "../style/applyleave.css";
+import "../../style/applyleave.css";
 
 class LeaveForm extends React.Component {
   render() {

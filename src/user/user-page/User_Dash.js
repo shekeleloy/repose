@@ -1,7 +1,7 @@
 import React from 'react';
-import "../style/table.css";
+import "../../style/table.css";
 
-const User_Dash = () => {
+const UserDash = () => {
   return (
     <div className="dash-container">
       
@@ -63,4 +63,4 @@ const User_Dash = () => {
   );
 }
 
-export default User_Dash;
+export default UserDash;

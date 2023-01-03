@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendartable from '../components/Calendartable';
+import Calendartable from '../../components/Calendartable';
 
 const UserCalendar = () => {
     return (
