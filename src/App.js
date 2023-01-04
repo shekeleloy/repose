@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // Components
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
-import UserSidebar from "./components/user component/usersidebar";
+import UserSidebar from "./components/user_component/usersidebar";
 
 // Pages of admin
 import Calendar from "./pages/Calendar";
