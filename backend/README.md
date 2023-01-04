@@ -11,7 +11,7 @@
 
 # Initial setup for the said database 
 ## request init
-http://localhost:3000/request/init
+http://localhost:3001/request/init
 
 Method: GET
 Response:
@@ -23,7 +23,7 @@ Response:
 }
 ```
 ## user init
-http://localhost:3000/users/init
+http://localhost:3001/users/init
 Method: GET
 Response:
 ```JSON
@@ -35,7 +35,7 @@ Response:
 ```
 # POST METHOD
 ## Create user
-http://localhost:3000/users/createUser
+http://localhost:3001/users/createUser
 Method: POST
 Request Body
 ```JSON
@@ -55,7 +55,7 @@ Response
 }
 ```
 ## user auth
-http://localhost:3000/users/auth
+http://localhost:3001/users/auth
 Method: POST
 Request Body
 ```JSON
@@ -76,7 +76,7 @@ Response Body
 }
 ```
 ## Create Reqeust
-http://localhost:3000/request/create
+http://localhost:3001/request/create
 Method: POST
 Request Body:
 ```JSON
@@ -95,7 +95,7 @@ Response:
 }
 ```
 ## view request
-http://localhost:3000/request/view
+http://localhost:3001/request/view
 Method POST
 Request Body:
 ```JSON
@@ -179,7 +179,7 @@ Response:
 }
 ```
 ## update request
-http://localhost:3000/request/update
+http://localhost:3001/request/update
 Method: POST
 Request Body:
 ```JSON

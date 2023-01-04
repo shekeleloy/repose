@@ -68,6 +68,7 @@ exports.view = (req) => {
       Check_Admin(req)
         .then((result) => {
           if (result.row != null) {
+            console.log(result.row);
             db.serialize(() => {
               const stmt = db.prepare(
                 "SELECT request_id, user_email, user_name, request_file, request_status, request_created, request_modify FROM request CROSS JOIN user where user_uid = ?"
