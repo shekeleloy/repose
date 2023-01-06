@@ -15,16 +15,15 @@
     align-items: center;
 }
 
-input {
+.adminlog-form > input {
     border: none;
-    width: 411px;
-    height: 32px;
-
+    width: 60%;
+    /* height: 32px; */
     border-radius: 3px;
     padding: 10px;
 }
 
-input:focus {
+.adminlog-form > input:focus {
     outline-color: darkgray;
 }
 
@@ -32,7 +31,7 @@ input:focus {
     background-color: #383636;
     color: white;
     font-family: 'Inter';
-    height: 649px;
+    height: 100vh;
     gap: 30px;
 
     position: relative;
@@ -45,12 +44,10 @@ input:focus {
 
 .login-btn {
     background-color: #545454;
-    width: 150px;
-    height: 40px;
-
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px 20px;
     transition: 0.5s;
     border-radius: 2px;
     cursor: pointer;
