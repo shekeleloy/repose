@@ -10,7 +10,7 @@ const Calendartable = () => {
 
   return (
     <div className="con-1">
-      <h2>Calendar</h2>
+      <h1>Calendar</h1>
       <div className="calendar-container">
         <Calendar
           calendarType="US"
