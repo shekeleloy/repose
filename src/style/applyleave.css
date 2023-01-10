@@ -9,11 +9,11 @@
 
 form {
   width: 30%;
-  gap: 8px;
+  gap: 9px;
 }
 
 form:nth-child(1) {
-  margin-bottom: 61px;
+  margin-bottom: 56px;
 }
 
 input {
@@ -45,6 +45,7 @@ input[type="text"] {
 .radio {
   display: flex;
   align-items: center;
+  gap: 30px;
 }
 
 .radio2 > input {
