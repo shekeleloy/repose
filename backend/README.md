@@ -7,9 +7,12 @@
   - [Create user](#create-user)
   - [user auth](#user-auth)
   - [user update/edit](#user-updateedit)
+  - [delete user](#delete-user)
   - [Create Reqeust](#create-reqeust)
   - [view request](#view-request)
   - [update request](#update-request)
+- [Dashboard](#dashboard)
+  - [admin](#admin)
 
 # Initial setup for the said database 
 ## request init
@@ -251,5 +254,33 @@ Response:
   "status": "Success",
   "payload": "data has been update/modified",
   "date": "2023/0/3 15:07:06 GMT+0800 (Philippine Standard Time)"
+}
+```
+# Dashboard
+## admin
+http://localhost:3001/dashboard/admin
+Method: POST
+note that the user_uid needed to have admin privilage if not there is no authorize access 
+Request Body:
+```JSON
+{
+  "user_uid":"cafe01c8-c859-44c0-bef2-51b28feb09d0"
+}
+```
+Response body:
+```JSON
+{
+  "status": "success",
+  "payload": {
+    "message": "",
+    "data": {
+      "employee": 3,
+      "leaves": 0,
+      "approved": 0,
+      "pending": 0,
+      "declined": 0
+    }
+  },
+  "date": "2023/0/13 23:00:47 GMT+0800 (Philippine Standard Time)"
 }
 ```
