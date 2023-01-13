@@ -5,32 +5,15 @@
   padding-top: 30px;
 }
 
-.employee-grid {
-  padding: 20px;
-  background-color: #D9D9D9;
-  display: flex;
-}
-
-.leaves-grid {
-  padding: 20px;
-  background-color: #D9D9D9;
-  display: flex;
-}
-
-.approved-grid {
-  padding: 20px;
-  background-color: #D9D9D9;
-  display: flex;
-}
-
-.pending-grid {
-  padding: 20px;
-  background-color: #D9D9D9;
-  display: flex;
-}
-
+.employee-grid,
+.leaves-grid,
+.approved-grid,
+.pending-grid,
 .declined-grid {
   padding: 20px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   display: flex;
+  align-items: center;
+  gap: 20px;
+  border-radius: 5px;
 }
