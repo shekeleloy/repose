@@ -1,7 +1,7 @@
 const date = new Date();
 
 exports.Response = (status_message, payload, status = 200) => {
-  data = {
+  const data = {
     body: JSON.stringify({
       status: status_message,
       payload,
