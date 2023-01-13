@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var user = require("./index");
+
 /* GET users listing. */
 router.get("/", function (req, res, next) {
   res.send("respond with a resource");
@@ -17,6 +18,16 @@ router.post("/auth", function (req, res) {
   });
 });
 
+router.post("/update", function (req, res) {
+  user.edit.editUser(req.body).then((result) => {
+    res.status(result.status).send(result.body);
+  });
+});
+router.post("/delete", function (req, res) {
+  user.delete.deleteUser(req.body).then((result) => {
+    res.status(result.status).send(result.body);
+  });
+});
 router.post("/createUser", function (req, res) {
   user.create
     .createUser(req.body)

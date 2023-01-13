@@ -30,10 +30,6 @@ exports.createUser = (req) => {
               ],
               (err) => {
                 if (err) {
-                  const data = {
-                    err,
-                    status: 400,
-                  };
                   reject(format.data.Response("failed", err, 400));
                 }
                 resolve(format.data.Response("success", "Create user Success"));

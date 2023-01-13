@@ -1,6 +1,6 @@
 var format = require("../../../methods/format/index");
 var db = require("../../../database/connection");
-
+var checker = require("../../../methods/checker/index");
 exports.create = (req) => {
   return new Promise((resolve, reject) => {
     if (
@@ -10,51 +10,56 @@ exports.create = (req) => {
     ) {
       const user_id = "(SELECT user_id from user where user_uid = ?)";
       const stmt = db.prepare(
-        "INSERT INTO request (user_id,request_status,request_file, request_created)VALUES (" +
+        "INSERT INTO request (" +
+          "user_id," +
+          "request_status," +
+          "request_file," +
+          "request_created," +
+          "request_LeaveType," +
+          "request_StartLeave," +
+          "request_EndLeave," +
+          // new
+          "request_LeaveCountInclude," +
+          "request_TotalLeaveCount," +
+          "request_Remark," +
+          "request_SupportOfficer," +
+          "request_SupportOfficerRemark" +
+          " )VALUES (" +
           user_id +
-          ",?,?,CURRENT_TIMESTAMP);"
+          ",?,?,CURRENT_TIMESTAMP,? " +
+          ",?,?" +
+          ",?,?,?,?,?" +
+          ")"
       );
-      stmt.run([req.user_uid, req.request_status, req.request_file], (err) => {
-        if (err) {
-          reject(
-            format.data.Response("failed", {
-              err,
-              message: "token is expired or unregistered user",
-            })
-          );
-        }
-        resolve(format.data.Response("Success", "request has been made", 200));
-      });
-    } else {
-      resolve(
-        format.data.Response("failed", "missing/not Acceptable crednetial", 406)
-      );
-    }
-  });
-};
-const Check_Admin = (req) => {
-  return new Promise((resolve, reject) => {
-    if (req.user_uid != null) {
-      db.serialize(() => {
-        const stmt = db.prepare(
-          "SELECT user_admin from user where user_uid = ? and user_admin = true LIMIT 1"
-        );
-        stmt.get([req.user_uid], (err, row) => {
+      stmt.run(
+        [
+          req.user_uid,
+          req.request_status,
+          req.request_file,
+          req.request_LeaveType,
+          req.request_StartLeave,
+          req.request_EndLeave,
+          // new
+          req.request_LeaveCountInclude,
+          req.request_TotalLeaveCount,
+          req.request_Remark,
+          req.request_SupportOfficer,
+          req.request_SupportOfficerRemark,
+        ],
+        (err) => {
           if (err) {
-            reject(err);
-          }
-          if (row != null) {
-            resolve({ row });
-          } else {
-            resolve(
-              format.data.Response(
-                "failed",
-                "token is expired or unregistered admin"
-              )
+            reject(
+              format.data.Response("failed", {
+                err,
+                message: "token is expired or unregistered user",
+              })
             );
           }
-        });
-      });
+          resolve(
+            format.data.Response("Success", "request has been made", 200)
+          );
+        }
+      );
     } else {
       resolve(
         format.data.Response("failed", "missing/not Acceptable crednetial", 406)
@@ -65,13 +70,21 @@ const Check_Admin = (req) => {
 exports.view = (req) => {
   return new Promise((resolve, reject) => {
     if (req.user_uid != null) {
-      Check_Admin(req)
+      checker.check
+        .Check_Admin(req)
         .then((result) => {
           if (result.row != null) {
-            console.log(result.row);
             db.serialize(() => {
               const stmt = db.prepare(
-                "SELECT request_id, user_email, user_name, request_file, request_status, request_created, request_modify FROM request CROSS JOIN user where user_uid = ?"
+                "SELECT " +
+                  "request_id," +
+                  "user_email," +
+                  "user_name," +
+                  "request_file," +
+                  "request_status," +
+                  "request_created," +
+                  "request_modify" +
+                  " FROM request CROSS JOIN user where user_uid = ?"
               );
               stmt.all([req.user_uid], (err, rows) => {
                 if (err) {
@@ -108,7 +121,7 @@ exports.update = (req) => {
       req.user_uid != null &&
       req.request_id != null
     ) {
-      Check_Admin(req).then((result) => {
+      checker.check.Check_Admin(req).then((result) => {
         if (result.row != null) {
           db.serialize(() => {
             const stmt = db.prepare(
