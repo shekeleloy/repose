@@ -39,5 +39,15 @@ router.post("/createUser", function (req, res) {
       res.status(err.status).send(err.body);
     });
 });
+router.post("/listuser", function (req, res) {
+  user.list
+    .user(req.body)
+    .then((result) => {
+      res.status(result.status).send(result.body);
+    })
+    .catch((err) => {
+      res.status(err.status).send(err.body);
+    });
+});
 
 module.exports = router;

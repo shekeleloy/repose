@@ -4,10 +4,13 @@
   - [request init](#request-init)
   - [user init](#user-init)
 - [POST METHOD](#post-method)
-  - [Create user](#create-user)
-  - [user auth](#user-auth)
-  - [user update/edit](#user-updateedit)
-  - [delete user](#delete-user)
+  - [User](#user)
+    - [Create user](#create-user)
+    - [user auth](#user-auth)
+    - [user update/edit](#user-updateedit)
+    - [delete user](#delete-user)
+    - [Admin power in user stuff](#admin-power-in-user-stuff)
+      - [listuser](#listuser)
   - [Create Reqeust](#create-reqeust)
   - [view request](#view-request)
   - [update request](#update-request)
@@ -39,7 +42,8 @@ Response:
 }
 ```
 # POST METHOD
-## Create user
+## User
+### Create user
 http://localhost:3001/users/createUser
 Method: POST
 Request Body
@@ -59,7 +63,7 @@ Response
   "date": "2023/0/3 15:07:06 GMT+0800 (Philippine Standard Time)"
 }
 ```
-## user auth
+### user auth
 http://localhost:3001/users/auth
 Method: POST
 Request Body
@@ -81,13 +85,12 @@ Response Body
 }
 ```
 
-## user update/edit
+### user update/edit
 http://localhost:3001/users/update
 Method POST
 Request Body
 ``` JSON
 {
-  "test":"test",
   "user_uid":"bbda6f2f-ffd1-4284-812c-459589001ed3",
   //optional all in bottom is optional example if you only want to edit is the user_name then just put that
   "user_name":"this is not albert",
@@ -103,7 +106,7 @@ response message
   "date": "2023/0/13 22:45:59 GMT+0800 (Philippine Standard Time)"
 }
 ```
-## delete user
+### delete user
 http://localhost:3001/users/delete
 Method POST
 request body
@@ -118,6 +121,54 @@ Response body
   "status": "success",
   "payload": "successfuly deleted user",
   "date": "2023/0/13 23:00:47 GMT+0800 (Philippine Standard Time)"
+}
+```
+### Admin power in user stuff
+#### listuser
+http://localhost:3001/users/listuser
+Method: POST
+Request Body:
+```JSON
+{
+  //note the user_uid is an admin user of sample@gmail.com and the user)uid may vary
+  "user_uid":"b62c39ee-e335-47ee-9eb7-218763a178e0"
+}
+```
+Response Body:
+```JSON
+{
+  "status": "succes",
+  "payload": {
+    "message": "something in list user testing purposes",
+    "data": [
+      {
+        "user_email": "testing",
+        "user_name": "test name",
+        "user_admin": 1
+      },
+      {
+        "user_email": "aaron@gmail.com",
+        "user_name": "test name",
+        "user_admin": 1
+      },
+      {
+        "user_email": "albert@gmail.com",
+        "user_name": "test name",
+        "user_admin": 1
+      },
+      {
+        "user_email": "sample@gmail.com",
+        "user_name": "test name",
+        "user_admin": 1
+      },
+      {
+        "user_email": "cielo@gmail.com",
+        "user_name": "sample password",
+        "user_admin": 1
+      }
+    ]
+  },
+  "date": "2023/0/15 19:41:20 GMT+0800 (Philippine Standard Time)"
 }
 ```
 ## Create Reqeust
