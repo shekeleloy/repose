@@ -84,15 +84,21 @@ exports.user = (req) => {
     if (req.user_uid != null) {
       checker.check.Check_User(req).then((result) => {
         if (result.row != null) {
+          console.log(result.row);
           db.serialize(() => {
             const stmt = db.prepare(
-              "SELECT COUNT(request_leaveDuration) as leaveDuration from request where ? "
+              "SELECT " +
+                "ROUND(JULIANDAY(request_StartLeave) - JULIANDAY(request_EndLeave)) as leaveDuration " +
+                "from request " +
+                "CROSS JOIN user " +
+                "where request.user_id = user.user_id AND user.user_uid = ? "
             );
             stmt.get([req.user_uid], (err, row) => {
               if (err) {
                 reject(err);
               }
               console.log("i am here");
+              console.log(row);
               const leaveDuration = row.leaveDuration;
               const data = { leaveDuration };
               resolve(
