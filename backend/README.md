@@ -11,9 +11,10 @@
     - [delete user](#delete-user)
     - [Admin power in user stuff](#admin-power-in-user-stuff)
       - [listuser](#listuser)
-  - [Create Reqeust](#create-reqeust)
-  - [view request](#view-request)
-  - [update request](#update-request)
+  - [Request](#request)
+    - [Create Reqeust](#create-reqeust)
+    - [view request](#view-request)
+    - [update request](#update-request)
 - [Dashboard](#dashboard)
   - [admin](#admin)
 
@@ -171,7 +172,8 @@ Response Body:
   "date": "2023/0/15 19:41:20 GMT+0800 (Philippine Standard Time)"
 }
 ```
-## Create Reqeust
+## Request
+### Create Reqeust
 http://localhost:3001/request/create
 Method: POST
 Request Body:
@@ -204,7 +206,7 @@ Response:
   "date": "2023/0/3 15:07:06 GMT+0800 (Philippine Standard Time)"
 }
 ```
-## view request
+### view request
 http://localhost:3001/request/view
 Method POST
 Request Body:
@@ -288,7 +290,7 @@ Response:
   "date": "2023/0/3 15:07:06 GMT+0800 (Philippine Standard Time)"
 }
 ```
-## update request
+### update request
 http://localhost:3001/request/update
 Method: POST
 Request Body:
@@ -297,6 +299,9 @@ Request Body:
   "user_uid":"5cc47a0d-d44e-48d8-811f-d0ef4ab63962",
   "request_id": 1,
   "request_status":1
+  // 0 = false or checking
+  // 1 = true or approved
+  // 2 = dismiss
 }
 ```
 Response:
