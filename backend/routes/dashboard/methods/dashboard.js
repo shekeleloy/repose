@@ -88,29 +88,76 @@ exports.user = (req) => {
           db.serialize(() => {
             const stmt = db.prepare(
               "SELECT " +
-                "ROUND(JULIANDAY(request_StartLeave) - JULIANDAY(request_EndLeave)) as leaveDuration " +
+                "ROUND(JULIANDAY(request_EndLeave) - JULIANDAY(request_StartLeave)) as leaveDuration, " +
+                "request_LeaveType as LeaveType " +
                 "from request " +
                 "CROSS JOIN user " +
-                "where request.user_id = user.user_id AND user.user_uid = ? "
+                "where request.user_id = user.user_id " +
+                "AND user.user_uid = ? " +
+                "AND request.request_EndLeave > CURRENT_TIMESTAMP " +
+                "AND request.request_status = 1 " +
+                "ORDER BY request_StartLeave ASC"
             );
             stmt.get([req.user_uid], (err, row) => {
+              var note = "";
               if (err) {
                 reject(err);
               }
-              console.log("i am here");
-              console.log(row);
-              const leaveDuration = row.leaveDuration;
-              const data = { leaveDuration };
-              resolve(
-                format.data.Response(
-                  "success",
-                  {
-                    message: "data gathered successfully",
-                    data,
-                  },
-                  200
-                )
+              // console.log("i am here");
+              // console.log(row);
+              var leaveDuration;
+              var leaveType;
+              if (row !== undefined) {
+                leaveDuration = row.leaveDuration;
+                leaveType = row.LeaveType;
+              } else {
+                leaveDuration = 0;
+                leaveType = "---";
+                note +=
+                  "\n note that leaveDuration has no data that is being approved";
+              }
+              const stmt = db.prepare(
+                "SELECT " +
+                  "SUM(ROUND(JULIANDAY(request_StartLeave) - JULIANDAY(request_EndLeave))) as UsedLeave " +
+                  "from request " +
+                  "CROSS JOIN user " +
+                  "where request.user_id = user.user_id " +
+                  "AND user.user_uid = ? " +
+                  "AND request.request_EndLeave < CURRENT_TIMESTAMP " +
+                  "AND request.request_status = 1 " +
+                  "ORDER BY request_StartLeave ASC"
               );
+              stmt.get([req.user_uid], (err, row) => {
+                if (err) {
+                  reject(err);
+                }
+                // console.log(row);
+                const TotalLeave = 30;
+                var UsedLeave;
+                if (row.UsedLeave != null) {
+                  UsedLeave = row.UsedLeave;
+                } else {
+                  UsedLeave = 0;
+                }
+                const data = {
+                  leaveDuration,
+                  leaveType,
+                  TotalLeave,
+                  UsedLeave,
+                  BalanceLeave: TotalLeave - UsedLeave,
+                };
+                resolve(
+                  format.data.Response(
+                    "success",
+                    {
+                      message: "data gathered successfully ",
+                      note,
+                      data,
+                    },
+                    200
+                  )
+                );
+              });
             });
           });
         } else {

@@ -179,15 +179,15 @@ Method: POST
 Request Body:
 ```JSON
 {
-  "user_uid":"c7d7f7a2-1a45-425d-abe3-5e20966c6514",
+  "user_uid":"27c0d67e-e26e-4e12-84af-7ca032ac7012",
   "request_file":"request for leave testing asd",
   "request_status":0,
   // optional field
+  "request_StartLeave":"2023-01-20 03:51:18",
   "request_EndLeave":"2023-01-07 03:51:18",
-  "request_StartLeave":"2023-01-17 03:51:18",
   "request_LeaveType":"SAMPLE",
   "request_TotalLeaveCount":1,
-  "request_LeaveCountInclude":10,
+  "request_LeaveCount":10,
   // 0 = none
   // 1 = Saturday
   // 2 = Sunday
