@@ -17,6 +17,7 @@
     - [update request](#update-request)
 - [Dashboard](#dashboard)
   - [admin](#admin)
+  - [User](#user-1)
 
 # Initial setup for the said database 
 ## request init
@@ -338,5 +339,53 @@ Response body:
     }
   },
   "date": "2023/0/13 23:00:47 GMT+0800 (Philippine Standard Time)"
+}
+```
+## User
+http://localhost:3001/dashboard/user
+Method:POST
+every user can access this method even admin
+Request Body:
+```JSON
+{
+  "user_uid":"27c0d67e-e26e-4e12-84af-7ca032ac7012"
+}
+```
+Response Body:
+this has approved request
+```JSON
+{
+  "status": "success",
+  "payload": {
+    "message": "data gathered successfully ",
+    "note": "",
+    "data": {
+      "leaveDuration": 13,
+      "leaveType": "SAMPLE",
+      "TotalLeave": 30,
+      "UsedLeave": 23,
+      "BalanceLeave": 7
+    }
+  },
+  "date": "2023/0/17 18:10:32 GMT+0800 (Philippine Standard Time)"
+}
+```
+Response Body:
+failed or no data that has been approved
+```JSON
+{
+  "status": "success",
+  "payload": {
+    "message": "data gathered successfully ",
+    "note": "\n note that leaveDuration has no data that is being approved",
+    "data": {
+      "leaveDuration": 0,
+      "leaveType": "---",
+      "TotalLeave": 30,
+      "UsedLeave": 0,
+      "BalanceLeave": 30
+    }
+  },
+  "date": "2023/0/17 17:43:40 GMT+0800 (Philippine Standard Time)"
 }
 ```
