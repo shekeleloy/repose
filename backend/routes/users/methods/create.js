@@ -17,7 +17,7 @@ exports.createUser = (req) => {
           if (err) {
             reject(err);
           }
-          if (rows.length == 0) {
+          if (rows.length === 0) {
             const stmt = db.prepare(
               "INSERT INTO user ( user_email, user_name, user_password, user_admin ) VALUES (?,?,?,?)"
             );
