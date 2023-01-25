@@ -45,15 +45,7 @@ input[type="text"] {
 .radio {
   display: flex;
   align-items: center;
-  gap: 30px;
-}
-
-.radio2 > input {
-  margin-left: 10px;
-}
-
-.radio3 > input {
-  margin-left: 10px;
+  gap: 10px;
 }
 
 table {
@@ -67,6 +59,7 @@ table {
 th {
   background-color: rgb(64 64 64);
   border: 1px solid #5b5b5b;
+  text-align: center;
 }
 
 tr td {

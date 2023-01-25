@@ -18,6 +18,7 @@ import Login from "./pages/Login";
 import UserDash from "./user/user-page/User_Dash";
 import UserCalendar from "./user/user-page/User_Calendar";
 import LeaveForm from "./user/user-page/ApplyLeave";
+import UserLeaves from "../user/user-page/User_Leaves";
 
 import "./App.css";
 
@@ -85,6 +86,14 @@ const App = () => {
             />
             <Route
               path="applyleave"
+              element={
+                <UserSidebar>
+                  <LeaveForm />
+                </UserSidebar>
+              }
+            />
+            <Route
+              path="user_leaves"
               element={
                 <UserSidebar>
                   <LeaveForm />
