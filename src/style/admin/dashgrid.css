@@ -17,3 +17,25 @@
   gap: 20px;
   border-radius: 5px;
 }
+
+.employee,
+.leave,
+.approved,
+.pending,
+.declined {
+  font-size: 23px;
+}
+
+.count1, .count2, .count3, .count4, .count5 {
+  color: #505050;
+}
+
+.employee-grid > div,
+.leaves-grid > div,
+.approved-grid > div,
+.pending-grid > div,
+.declined-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

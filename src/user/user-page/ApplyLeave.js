@@ -18,16 +18,12 @@ class LeaveForm extends React.Component {
           <input type="text" name="name" placeholder="mm/dd/yyyy" />
           <label>Leave Count Include</label>
           <div className="radio">
-            <label>Saturday</label>
             <input type="radio" name="day" value="Saturday" />
+            <label>Saturday</label>
           </div>
           <div className="radio radio2">
-            <label>Sunday</label>
             <input type="radio" name="day" value="Sunday" />
-          </div>
-          <div className="radio radio3">
-            <label>Holiday</label>
-            <input type="radio" name="day" value="Holiday" />
+            <label>Sunday</label>
           </div>
           <label>Total Leave Count</label>
           <input type="text" name="name" />
@@ -44,19 +40,15 @@ class LeaveForm extends React.Component {
           <label>Approval Officer</label>
           <table>
             <tr>
-              <th>Level</th>
               <th>Officer</th>
             </tr>
             <tr>
               <td>&nbsp;</td>
-              <td>&nbsp;</td>
             </tr>
             <tr>
               <td>&nbsp;</td>
-              <td>&nbsp;</td>
             </tr>
             <tr>
-              <td>&nbsp;</td>
               <td>&nbsp;</td>
             </tr>
           </table>

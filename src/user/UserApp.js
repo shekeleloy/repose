@@ -10,6 +10,7 @@ import Navbar from "../components/Navbar";
 import UserDash from "./user-page/User_Dash";
 import UserCalendar from "../user/user-page/User_Calendar";
 import LeaveForm from "../user/user-page/ApplyLeave";
+import UserLeaves from "../user/user-page/User_Leaves";
 
 const UserApp = () => {
   return (
@@ -21,6 +22,7 @@ const UserApp = () => {
             <Route path="/dashboard" element={<UserDash />} />
             <Route path="/calendar" element={<UserCalendar />} />
             <Route path="/applyleave" element={<LeaveForm />} />
+            <Route path="/user_leaves" element={<UserLeaves />} />
           </Routes>
         </UserSidebar>
       </BrowserRouter>
