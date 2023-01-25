@@ -5,7 +5,7 @@ const UserLeaves = () => {
   return (
     <div>
       <div className="leaves">
-        
+        <h1>LOMLS</h1>
       </div>
     </div>
   );

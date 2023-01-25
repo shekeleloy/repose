@@ -21,6 +21,10 @@ const UserSidebar = ({ children }) => {
       path: "/user/calendar",
       name: "Calendar",
     },
+    {
+      path: "/user/user_leaves",
+      name: "User Leaves",
+    },
   ];
   return (
     <div className="container">

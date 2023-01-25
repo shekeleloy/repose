@@ -18,7 +18,7 @@ import Login from "./pages/Login";
 import UserDash from "./user/user-page/User_Dash";
 import UserCalendar from "./user/user-page/User_Calendar";
 import LeaveForm from "./user/user-page/ApplyLeave";
-import UserLeaves from "../user/user-page/User_Leaves";
+import UserLeaves from "./user/user-page/User_Leaves"; //one period ok na to call the page
 
 import "./App.css";
 
@@ -96,7 +96,7 @@ const App = () => {
               path="user_leaves"
               element={
                 <UserSidebar>
-                  <LeaveForm />
+                  <UserLeaves />
                 </UserSidebar>
               }
             />
