@@ -17,7 +17,7 @@ exports.createUser = (req) => {
           if (err) {
             reject(err);
           }
-          if (rows.length == 0) {
+          if (rows.length === 0) {
             const stmt = db.prepare(
               "INSERT INTO user ( user_email, user_name, user_password, user_admin ) VALUES (?,?,?,?)"
             );
@@ -30,10 +30,6 @@ exports.createUser = (req) => {
               ],
               (err) => {
                 if (err) {
-                  const data = {
-                    err,
-                    status: 400,
-                  };
                   reject(format.data.Response("failed", err, 400));
                 }
                 resolve(format.data.Response("success", "Create user Success"));

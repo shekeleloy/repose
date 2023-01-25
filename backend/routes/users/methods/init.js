@@ -5,7 +5,14 @@ exports.userinit = () => {
   return new Promise((resolve, reject) => {
     db.serialize(() => {
       db.run(
-        "CREATE TABLE IF NOT EXISTS user (user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_uid TEXT,user_email TEXT,user_name TEXT,user_password TEXT, user_admin boolean NOT NULL);",
+        "CREATE TABLE IF NOT EXISTS user (\n" +
+          "user_id INTEGER PRIMARY KEY AUTOINCREMENT,\n" +
+          "user_uid TEXT,\n" +
+          "user_email TEXT,\n" +
+          "user_name TEXT,\n" +
+          "user_password TEXT,\n" +
+          " user_admin boolean NOT NULL\n" +
+          ");",
         (err) => {
           if (err) reject(err);
           resolve(
